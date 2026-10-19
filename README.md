@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/assets/images/logo.png" alt="My Flous logo" width="112" />
+  <img src="/assets/logo.png" alt="My Flous logo" width="112" />
   <h1>My Flous</h1>
   <p><strong>Every dinar. One clear picture.</strong></p>
   <p>A modern, mobile-first personal finance tracker for organizing income, expenses, transfers, and savings — all in one place.</p>
