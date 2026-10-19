@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MyFlous — Track every dinar</title>
+<meta name="description" content="MyFlous is an offline-first finance tracker for cash, bank and savings accounts. Free, private, and built for the Maghreb.">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="dark">
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="" class="brand-mark">
+      <span class="brand-word">My<span>Flous</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#creator" data-i18n="nav.creator">Creator</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" title="Language">
+          <span class="lang-flag" id="langFlagIcon"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#FFFFFF" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="1.6"/><path d="M15,0 V20 M0,10 H30" stroke="#FFFFFF" stroke-width="6.6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="4"/></svg></span>
+          <span class="lang-code" id="langCode">EN</span>
+          <svg class="lang-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="listbox">
+          <li role="option" data-lang="en" class="lang-option active">
+            <span class="lang-flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#FFFFFF" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="1.6"/><path d="M15,0 V20 M0,10 H30" stroke="#FFFFFF" stroke-width="6.6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="4"/></svg></span>
+            <span>English</span>
+          </li>
+          <li role="option" data-lang="fr" class="lang-option">
+            <span class="lang-flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" x="0" fill="#0055A4"/><rect width="10" height="20" x="10" fill="#FFFFFF"/><rect width="10" height="20" x="20" fill="#EF4135"/></svg></span>
+            <span>Français</span>
+          </li>
+          <li role="option" data-lang="ar" class="lang-option">
+            <span class="lang-flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="20" fill="#006C35"/><rect x="4" y="13.4" width="16" height="2" rx="1" fill="#FFFFFF"/><path d="M20 14.4 L23.5 14.4 L20.6 13.2 Z" fill="#FFFFFF"/><rect x="4" y="8.5" width="12" height="1.6" rx="0.8" fill="#FFFFFF" opacity="0.9"/></svg></span>
+            <span>العربية</span>
+          </li>
+        </ul>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+      </button>
+      <a href="#download" class="btn btn-primary btn-sm" data-i18n="nav.download">Download</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" data-i18n="nav.features">Features</a>
+  <a href="#about" data-i18n="nav.about">About</a>
+  <a href="#creator" data-i18n="nav.creator">Creator</a>
+  <div class="mobile-lang" id="mobileLang">
+    <button class="mobile-lang-opt active" data-lang="en">🇬🇧 English</button>
+    <button class="mobile-lang-opt" data-lang="fr">🇫🇷 Français</button>
+    <button class="mobile-lang-opt" data-lang="ar">🇸🇦 العربية</button>
+  </div>
+  <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<main id="top">
+<section class="hero">
+  <div class="hero-rays" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">Made for the Maghreb — free &amp; offline-first</span></p>
+      <h1><span data-i18n="hero.title1">Track every dinar,</span><br><span data-i18n="hero.title2">before it tracks</span> <span class="gold-underline" data-i18n="hero.title3">you.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">MyFlous keeps your cash, bank and savings honest — every riyal, dinar or dirham logged, categorized and understood, without a single byte ever leaving your phone.</p>
+
+      <div class="hero-ctas">
+        <a href="apk/MyFlous.apk" download="MyFlous.apk" class="btn btn-primary btn-lg" id="btnAndroid">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.5 8.5c-.28 0-.5.22-.5.5v6c0 .28.22.5.5.5s.5-.22.5-.5V9c0-.28-.22-.5-.5-.5zm11 0c-.28 0-.5.22-.5.5v6c0 .28.22.5.5.5s.5-.22.5-.5V9c0-.28-.22-.5-.5-.5zM8.3 15.75c0 .35.28.63.63.63h.57v2.12c0 .55.45 1 1 1s1-.45 1-1v-2.12h1v2.12c0 .55.45 1 1 1s1-.45 1-1v-2.12h.57c.34 0 .63-.28.63-.63V9H8.3v6.75zM15.4 5.7l.9-1.56a.3.3 0 00-.52-.3l-.91 1.58a5.9 5.9 0 00-4.74 0l-.91-1.58a.3.3 0 10-.52.3l.9 1.56C8.6 6.5 7.5 8.05 7.4 9.85h9.2c-.1-1.8-1.2-3.35-3.2-4.15zM10.2 8.1a.55.55 0 110-1.1.55.55 0 010 1.1zm3.6 0a.55.55 0 110-1.1.55.55 0 010 1.1z"/></svg>
+          <span data-i18n="hero.ctaAndroid">Download for Android</span>
+        </a>
+        <a href="./myflous/index.html" target="_blank" rel="noopener" class="btn btn-secondary btn-lg" id="btnWeb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+          <span data-i18n="hero.ctaWeb">Open web version</span>
+        </a>
+      </div>
+
+      <p class="hero-trust" data-i18n="hero.trust">No sign-up · Works offline · Your data stays on your device</p>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="balance-card" id="balanceCard">
+        <div class="bc-top">
+          <span class="bc-label" data-i18n="card.totalBalance">Total balance</span>
+          <span class="bc-eye">•••</span>
+        </div>
+        <div class="bc-amount"><span id="bcNumber">0</span> <small>TND</small></div>
+        <div class="bc-accounts">
+          <div class="bc-acc"><span class="bc-dot cash"></span><span data-i18n="card.cash">Cash</span></div>
+          <div class="bc-acc"><span class="bc-dot bank"></span><span data-i18n="card.bank">Bank</span></div>
+          <div class="bc-acc"><span class="bc-dot savings"></span><span data-i18n="card.savings">Savings</span></div>
+        </div>
+        <div class="bc-chart">
+          <div class="bar" style="--h:38%"></div>
+          <div class="bar" style="--h:62%"></div>
+          <div class="bar" style="--h:45%"></div>
+          <div class="bar" style="--h:80%"></div>
+          <div class="bar" style="--h:55%"></div>
+          <div class="bar" style="--h:70%"></div>
+          <div class="bar" style="--h:90%"></div>
+        </div>
+        <div class="bc-tx">
+          <div class="tx-row">
+            <span class="tx-icon food">🍔</span>
+            <span class="tx-info"><b data-i18n="card.groceries">Groceries</b><small data-i18n="card.today">Today</small></span>
+            <span class="tx-amt neg">−45.000</span>
+          </div>
+          <div class="tx-row">
+            <span class="tx-icon salary">💼</span>
+            <span class="tx-info"><b data-i18n="card.salary">Salary</b><small data-i18n="card.yesterday">Yesterday</small></span>
+            <span class="tx-amt pos">+1,200.000</span>
+          </div>
+          <div class="tx-row">
+            <span class="tx-icon transport">🚌</span>
+            <span class="tx-info"><b data-i18n="card.transport">Transport</b><small data-i18n="card.daysAgo">2 days ago</small></span>
+            <span class="tx-amt neg">−3.500</span>
+          </div>
+        </div>
+      </div>
+      <div class="float-chip chip-1">🇹🇳 🇩🇿 🇲🇦 +191</div>
+      <div class="float-chip chip-2">EN · FR · العربية</div>
+    </div>
+  </div>
+  <a href="#features" class="scroll-cue" aria-label="Scroll to features"><span></span></a>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features" id="features">
+  <div class="section-head">
+    <p class="eyebrow center"><span class="dot"></span><span data-i18n="features.eyebrow">Inside the app</span></p>
+    <h2 data-i18n="features.title">Everything money needs, nothing it doesn't.</h2>
+    <p class="section-sub" data-i18n="features.sub">MyFlous does one job — tracking where your money goes — and does it with real depth.</p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card feature-lg">
+      <div class="f-icon">💳</div>
+      <h3 data-i18n="feature1.title">Three accounts, one balance</h3>
+      <p data-i18n="feature1.desc">Cash in your pocket, money in the bank, savings on the side — tracked separately, summed automatically, never mixed up.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">↔️</div>
+      <h3 data-i18n="feature2.title">Income, expense &amp; transfer</h3>
+      <p data-i18n="feature2.desc">Log every kind of move, tagged to a category with its own icon and color.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">📊</div>
+      <h3 data-i18n="feature3.title">Five ways to see your money</h3>
+      <p data-i18n="feature3.desc">Monthly bars, a savings trend line, a category donut, a weekly view and a written report — pick the one that clicks.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">💱</div>
+      <h3 data-i18n="feature4.title">Any currency, one tap away</h3>
+      <p data-i18n="feature4.desc">Switch currency and every number across Dashboard, History and Statistics updates instantly.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">🌍</div>
+      <h3 data-i18n="feature5.title">English · Français · العربية</h3>
+      <p data-i18n="feature5.desc">A fully translated interface, including proper right-to-left layout for Arabic — not just flipped text.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">🌗</div>
+      <h3 data-i18n="feature6.title">Light, dark, always gold</h3>
+      <p data-i18n="feature6.desc">Two themes built around a single gold accent, easy on the eyes whatever the hour.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">🔒</div>
+      <h3 data-i18n="feature7.title">Your data, your backup</h3>
+      <p data-i18n="feature7.desc">Everything lives on your device. Export a full backup file whenever you want, import it whenever you need it back.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="f-icon">🎯</div>
+      <h3 data-i18n="feature8.title">Categories that fit your life</h3>
+      <p data-i18n="feature8.desc">Keep the defaults or build your own — pick an icon and color for every category you track.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-copy">
+      <p class="eyebrow"><span class="dot"></span><span data-i18n="about.eyebrow">What is MyFlous</span></p>
+      <h2 data-i18n="about.title">A money tracker that stays out of your business — literally.</h2>
+      <p data-i18n="about.p1">MyFlous started from a simple frustration: most finance apps want your bank login, your phone number, and a subscription before they'll show you a single chart. MyFlous doesn't. It's a self-contained ledger that lives on your phone, built for students, employees and anyone who wants a clear answer to "where did my money go this month?" — without handing their financial life to a server somewhere.</p>
+      <p data-i18n="about.p2">Open it, add your accounts, start logging. That's the whole onboarding.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label" data-i18n="about.stat1">account types</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label" data-i18n="about.stat2">languages, full RTL</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label" data-i18n="about.stat3">chart views</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-label" data-i18n="about.stat4">data leaves your phone</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREATOR ================= -->
+<section class="creator" id="creator">
+  <div class="creator-card">
+    <div class="creator-avatar">
+      <img src="assets/rayen.jpg" alt="Rayen Ben Amara" class="creator-avatar-img" onerror="this.style.display='none'; this.parentElement.textContent='RBA';">
+    </div>
+    <div class="creator-body">
+      <p class="eyebrow"><span class="dot"></span><span data-i18n="creator.eyebrow">Built by one person</span></p>
+      <h2>Rayen Ben Amara</h2>
+      <p class="creator-role" data-i18n="creator.role">Creator &amp; developer of MyFlous</p>
+      <p class="creator-bio" data-i18n="creator.bio">Rayen designed and built MyFlous end to end — product, interface and code — with a simple goal: give people everywhere a finance tracker that respects both their money and their privacy. MyFlous is an independent, ad-free project, shaped directly by feedback from the people who use it every day.</p>
+      <div class="creator-socials">
+        <a href="https://github.com/rayen0x" class="social-icon" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.02-.01-1.86-2.78.51-3.5-.7-3.72-1.35-.13-.33-.68-1.35-1.16-1.63-.4-.22-.97-.76-.01-.78.9-.01 1.55.85 1.76 1.2 1.03 1.76 2.68 1.26 3.34.96.1-.76.4-1.26.72-1.55-2.5-.29-5.12-1.28-5.12-5.68 0-1.25.44-2.28 1.16-3.08-.12-.29-.5-1.46.11-3.04 0 0 .95-.31 3.12 1.18a10.6 10.6 0 015.68 0c2.17-1.5 3.12-1.18 3.12-1.18.61 1.58.23 2.75.11 3.04.72.8 1.16 1.82 1.16 3.08 0 4.41-2.63 5.39-5.14 5.67.41.36.76 1.07.76 2.17 0 1.57-.01 2.83-.01 3.22 0 .27.18.6.69.49A10.26 10.26 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/rayen0x/" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.94 5a2 2 0 11-4-.02 2 2 0 014 .02zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-6.98-5.95-8.68-2.91V8.48z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/rayen0x" class="social-icon" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="2.5" y="2.5" width="19" height="19" rx="6"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.15" cy="6.85" r="0.4" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://x.com/rayen0x" class="social-icon" aria-label="X (Twitter)" title="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.9 2H22l-7.6 8.68L23 22h-6.9l-5.4-6.65L4.3 22H1.2l8.1-9.26L1 2h7.1l4.9 6.09L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta" id="download">
+  <div class="final-inner">
+    <img src="assets/logo.png" alt="" class="final-mark">
+    <h2 data-i18n="final.title">Ready to meet your flous?</h2>
+    <p data-i18n="final.sub">Free to use, nothing to sign up for, no ads to skip.</p>
+    <div class="hero-ctas center">
+      <a href="apk/MyFlous.apk" download="MyFlous.apk" class="btn btn-primary btn-lg" data-i18n="hero.ctaAndroid">Download for Android</a>
+      <a href="./myflous/index.html" target="_blank" rel="noopener" class="btn btn-secondary btn-lg" data-i18n="hero.ctaWeb">Open web version</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="" class="brand-mark">
+      <span class="brand-word">My<span>Flous</span></span>
+    </div>
+    <p data-i18n="footer.built">Built by Rayen Ben Amara.</p>
+    <p class="footer-copy" data-i18n="footer.rights">© 2026 MyFlous. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
