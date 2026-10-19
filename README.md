@@ -82,23 +82,23 @@ If an `android/` platform directory already exists, skip `npx cap add android` a
 🗂️ Repository Structure
 ```text <br><br>
 .
-├── index.html                 # Project presentation website
-├── css/                       # Presentation website styles
-├── js/                        # Presentation website scripts and translations
-├── assets/                    # Presentation assets
-├── apk/
-│   └── MyFlous.apk             # Android APK
+├── index.html                 # Project presentation website<br>
+├── css/                       # Presentation website styles<br>
+├── js/                        # Presentation website scripts and translations<br>
+├── assets/                    # Presentation assets<br>
+├── apk/ <br>
+│   └── MyFlous.apk             # Android APK<br>
 ├── MyFlous/
-│   ├── index.html              # Main finance tracker app
-│   ├── css/                    # App styles, themes, and responsive UI
-│   ├── js/                     # App logic, storage, transactions, statistics, i18n
-│   ├── assets/                 # App logo and icons
-│   ├── manifest.json           # PWA manifest
-│   ├── sw.js                   # Service worker
-│   ├── capacitor.config.json   # Capacitor configuration
-│   ├── CAPACITOR_ANDROID_SETUP.md
-│   └── CHANGELOG.md
-└── README.md
+│   ├── index.html              # Main finance tracker app <br>
+│   ├── css/                    # App styles, themes, and responsive UI <br>
+│   ├── js/                     # App logic, storage, transactions, statistics, i18n<br>
+│   ├── assets/                 # App logo and icons<br>
+│   ├── manifest.json           # PWA manifest<br>
+│   ├── sw.js                   # Service worker<br>
+│   ├── capacitor.config.json   # Capacitor configuration<br>
+│   ├── CAPACITOR_ANDROID_SETUP.md<br>
+│   └── CHANGELOG.md<br>
+└── README.md<br>
 
 <br>
 ```
