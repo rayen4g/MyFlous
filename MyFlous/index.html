@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" id="meta-theme-color" content="#FDFBF6">
+<meta name="description" content="My Flous — a premium personal finance tracker.">
+
+<!-- ---- Linked ---- -->
+<link rel="manifest" href="manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="My Flous">
+<meta name="application-name" content="My Flous">
+<meta name="msapplication-TileColor" content="#0A0A0C">
+<meta name="format-detection" content="telephone=no">
+<title>My Flous — Finance Tracker</title>
+
+<link rel="icon" href="assets/icons/favicon.png" type="image/png">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/enhancements.css">
+<link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body data-theme="light">
+
+<div class="viewport-stage">
+  <div id="app-root">
+
+    <!-- ============ 1st Screen ============ -->
+    <section id="splash-screen" aria-label="Loading My Flous">
+      <div class="splash-glow" aria-hidden="true"></div>
+      <div class="splash-logo-mark">
+        <img src="assets/images/logo.png" alt="My Flous" class="splash-logo-img">
+      </div>
+      <h1 class="splash-wordmark" id="splash-brand-text">My <b>Flous</b></h1>
+      <p class="splash-tagline" data-i18n="splash.tagline">Track every dinar</p>
+      <div class="splash-loader" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ First/Reset ============ -->
+    <section id="onboarding-screen" aria-hidden="true" aria-label="Welcome setup">
+      <div class="ob-glow" aria-hidden="true"></div>
+
+      <div class="ob-topbar">
+        <div class="ob-progress" id="ob-progress" aria-hidden="true">
+          <span class="ob-progress-fill" id="ob-progress-fill"></span>
+        </div>
+        <button type="button" class="ob-skip" id="ob-skip-btn" data-i18n="onboarding.skip">Skip</button>
+      </div>
+
+      <div class="ob-steps" id="ob-steps">
+
+        <!-- ---- Welcome ---- -->
+        <div class="ob-step" data-step="welcome">
+          <div class="ob-step-inner">
+            <div class="ob-welcome-mark">
+              <span class="ob-coin ob-coin-1"><img src="assets/images/logo.png" alt="My Flous" class="ob-coin-logo-img"></span>
+              <span class="ob-coin ob-coin-2" aria-hidden="true"></span>
+              <span class="ob-coin ob-coin-3" aria-hidden="true"></span>
+            </div>
+            <h1 class="ob-title" id="ob-welcome-title" data-i18n="onboarding.welcomeTitle">Welcome to My Flous</h1>
+            <p class="ob-subtitle" id="ob-welcome-subtitle" data-i18n="onboarding.welcomeSubtitle">Your money, beautifully organized. Let's set things up — it only takes a minute.</p>
+            <button type="button" class="btn-primary ob-cta" id="ob-welcome-next" data-i18n="onboarding.getStarted">Get Started</button>
+          </div>
+        </div>
+
+        <!-- ---- Language ---- -->
+        <div class="ob-step" data-step="language">
+          <div class="ob-step-inner">
+            <div class="ob-step-icon ob-icon-language" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+            </div>
+            <h2 class="ob-heading" data-i18n="onboarding.languageTitle">Choose your language</h2>
+            <p class="ob-desc" data-i18n="onboarding.languageSubtitle">You can always change this later in Settings.</p>
+            <div class="ob-language-list" id="ob-language-list"></div>
+          </div>
+        </div>
+
+        <!-- ---- Name ---- -->
+        <div class="ob-step" data-step="name">
+          <div class="ob-step-inner">
+            <div class="ob-step-icon ob-icon-name" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h2 class="ob-heading" data-i18n="onboarding.nameTitle">What's your name?</h2>
+            <p class="ob-desc" data-i18n="onboarding.nameSubtitle">We'll use this to personalize your dashboard.</p>
+            <div class="form-group ob-name-field">
+              <input type="text" id="ob-name-input" maxlength="40" autocomplete="name" data-i18n-placeholder="onboarding.namePlaceholder" placeholder="e.g. Rayen">
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- Country ---- -->
+        <div class="ob-step" data-step="country">
+          <div class="ob-step-inner">
+            <div class="ob-step-icon ob-icon-country" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+            </div>
+            <h2 class="ob-heading" data-i18n="onboarding.countryTitle">Where are you based?</h2>
+            <p class="ob-desc" data-i18n="onboarding.countrySubtitle">This helps us tailor currency and defaults for you.</p>
+            <button type="button" class="country-select-trigger ob-country-trigger" id="ob-country-trigger" aria-haspopup="dialog">
+              <span class="country-select-value" id="ob-country-value" data-i18n="onboarding.countryButton">Select your country</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ---- Category ---- -->
+        <div class="ob-step" data-step="category">
+          <div class="ob-step-inner">
+            <div class="ob-step-icon ob-icon-category" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h2 class="ob-heading" data-i18n="onboarding.categoryTitle">What best describes you?</h2>
+            <p class="ob-desc" data-i18n="onboarding.categorySubtitle">This helps us tailor tips to your situation.</p>
+            <div class="ob-category-list" id="ob-category-list">
+              <button type="button" class="ob-category-card" data-occupation="pupil">
+                <span class="ob-category-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </span>
+                <span class="ob-category-label" data-i18n="occupation.pupil">Pupil</span>
+              </button>
+              <button type="button" class="ob-category-card" data-occupation="student">
+                <span class="ob-category-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </span>
+                <span class="ob-category-label" data-i18n="occupation.student">Student</span>
+              </button>
+              <button type="button" class="ob-category-card" data-occupation="employee">
+                <span class="ob-category-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </span>
+                <span class="ob-category-label" data-i18n="occupation.employee">Employee</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- Ready ---- -->
+        <div class="ob-step" data-step="ready">
+          <div class="ob-step-inner">
+            <div class="ob-ready-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2 class="ob-heading" id="ob-ready-title" data-i18n="onboarding.readyTitle">You're all set!</h2>
+            <p class="ob-desc" id="ob-ready-subtitle" data-i18n="onboarding.readySubtitle">My Flous is ready to help you track every dinar.</p>
+            <button type="button" class="btn-primary ob-cta" id="ob-finish-btn" data-i18n="onboarding.startButton">Start Tracking</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="ob-nav" id="ob-nav">
+        <button type="button" class="ob-nav-back" id="ob-back-btn" data-i18n="onboarding.back">Back</button>
+        <button type="button" class="ob-nav-next" id="ob-next-btn" data-i18n="onboarding.next">Next</button>
+      </div>
+    </section>
+
+    <!-- ============ Guide Animation ============ -->
+    <div id="tour-overlay" aria-hidden="true">
+      <div class="tour-spotlight" id="tour-spotlight"></div>
+      <div class="tour-tooltip" id="tour-tooltip">
+        <div class="tour-tooltip-arrow" id="tour-tooltip-arrow" aria-hidden="true"></div>
+        <div class="tour-tooltip-step" id="tour-tooltip-step">1 / 4</div>
+        <div class="tour-tooltip-title" id="tour-tooltip-title">Title</div>
+        <div class="tour-tooltip-text" id="tour-tooltip-text">Text</div>
+        <div class="tour-tooltip-actions">
+          <button type="button" class="tour-skip-btn" id="tour-skip-btn" data-i18n="tour.skip">Skip tour</button>
+          <button type="button" class="tour-next-btn" id="tour-next-btn" data-i18n="tour.next">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ App Shell ============ -->
+    <div id="app-shell" aria-hidden="true">
+
+      <!-- ---------- TOP NAVIGATION ---------- -->
+      <header class="top-nav">
+        <div class="nav-side">
+          <button class="icon-btn" id="menu-btn" data-i18n-aria="nav.menuAria" aria-label="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="7" x2="20" y2="7"/>
+              <line x1="4" y1="12" x2="20" y2="12"/>
+              <line x1="4" y1="17" x2="14" y2="17"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="brand-lockup" id="top-bar-title">My Flous</div>
+
+        <div class="nav-side">
+          <button class="icon-btn" id="notif-btn" data-i18n-aria="nav.notifAria" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="notif-dot" aria-hidden="true"></span>
+          </button>
+          <button class="profile-avatar" id="profile-btn" data-i18n-aria="nav.profileAria" aria-label="Profile">R</button>
+        </div>
+      </header>
+
+      <!-- ---------- PAGE CONTAINER ---------- -->
+      <main id="page-container">
+
+        <!-- ===== HOME / DASHBOARD ===== -->
+        <section class="page page-active" data-page="home">
+          <h2 class="page-title">
+            <span id="greeting-text">Good evening</span>, <span id="greeting-name">Rayen</span>
+            <span class="muted" data-i18n="home.subtitle">Here's where your money stands today</span>
+          </h2>
+
+          <!-- ---- Main balance card ---- -->
+          <div class="card balance-card">
+            <div class="label" data-i18n="home.totalBalance">Total balance</div>
+            <div class="amount">
+              <span id="balance-counter" data-counter-target="0">0.000</span><span class="currency" id="balance-currency">TND</span>
+            </div>
+            <div class="sub-row">
+              <div class="sub-stat">
+                <div class="sub-label" data-i18n="home.incomeMonth">Income (month)</div>
+                <div class="sub-value trend-up">+<span id="stat-income-inline" data-counter-target="0">0.000</span></div>
+              </div>
+              <div class="sub-stat">
+                <div class="sub-label" data-i18n="home.expensesMonth">Expenses (month)</div>
+                <div class="sub-value trend-down">-<span id="stat-expenses-inline" data-counter-target="0">0.000</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- Account cards: Cash / Bank / Savings ---- -->
+          <div class="section-header">
+            <h3 data-i18n="home.myAccounts">My Accounts</h3>
+          </div>
+          <div class="accounts-grid anim-stagger">
+            <div class="account-card" data-account="cash">
+              <div class="acc-icon acc-icon-cash">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.4"/><path d="M6 6V4h12v2"/></svg>
+              </div>
+              <span class="acc-label" data-i18n="account.cash">Cash</span>
+              <span class="acc-amount"><span data-counter-target="0" id="acc-cash-counter">0.000</span> <b class="acc-currency">TND</b></span>
+            </div>
+            <div class="account-card" data-account="bank">
+              <div class="acc-icon acc-icon-bank">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M10 10v9M14 10v9M19 10v9"/><path d="M3 19h18"/></svg>
+              </div>
+              <span class="acc-label" data-i18n="account.bank">Bank</span>
+              <span class="acc-amount"><span data-counter-target="0" id="acc-bank-counter">0.000</span> <b class="acc-currency">TND</b></span>
+            </div>
+            <div class="account-card" data-account="savings">
+              <div class="acc-icon acc-icon-savings">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9a3 3 0 0 0-3-3h-1.5a5.5 5.5 0 0 0-10.9 1.2C2.5 8 2 9.8 2 11c0 2.8 2 5 5 5h9a3 3 0 0 0 3-3z"/><circle cx="16" cy="11" r="1"/></svg>
+              </div>
+              <span class="acc-label" data-i18n="account.savings">Savings</span>
+              <span class="acc-amount"><span data-counter-target="0" id="acc-savings-counter">0.000</span> <b class="acc-currency">TND</b></span>
+            </div>
+          </div>
+
+          <!-- ---- Statistics cards ---- -->
+          <div class="section-header">
+            <h3 data-i18n="home.thisMonth">This Month</h3>
+            <a data-page="statistics" data-i18n="common.details">Details</a>
+          </div>
+          <div class="stats-grid anim-stagger">
+            <div class="stat-card stat-income" data-history-filter="income" role="button" tabindex="0" data-i18n-aria="home.viewIncomeAria" aria-label="View income details in History">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </div>
+              <span class="stat-label" data-i18n="common.income">Income</span>
+              <span class="stat-value"><span data-counter-target="0" id="stat-income-counter">0.000</span></span>
+            </div>
+            <div class="stat-card stat-expense" data-history-filter="expense" role="button" tabindex="0" data-i18n-aria="home.viewExpenseAria" aria-label="View expense details in History">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </div>
+              <span class="stat-label" data-i18n="common.expenses">Expenses</span>
+              <span class="stat-value"><span data-counter-target="0" id="stat-expenses-counter">0.000</span></span>
+            </div>
+            <div class="stat-card stat-saved">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9a3 3 0 0 0-3-3h-1.5a5.5 5.5 0 0 0-10.9 1.2C2.5 8 2 9.8 2 11c0 2.8 2 5 5 5h9a3 3 0 0 0 3-3z"/><circle cx="16" cy="11" r="1"/></svg>
+              </div>
+              <span class="stat-label" data-i18n="common.saved">Saved</span>
+              <span class="stat-value"><span data-counter-target="0" id="stat-saved-counter">0.000</span></span>
+            </div>
+            <div class="stat-card stat-remaining">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+              </div>
+              <span class="stat-label" data-i18n="common.remaining">Remaining</span>
+              <span class="stat-value"><span data-counter-target="0" id="stat-remaining-counter">0.000</span></span>
+            </div>
+          </div>
+
+          <!-- ---- Income / Expense / Transfer / Savings ---- -->
+          <div class="section-header">
+            <h3 data-i18n="home.quickActions">Quick Actions</h3>
+          </div>
+          <div class="quick-actions anim-stagger">
+            <div class="quick-action" data-tx-type="income">
+              <div class="qa-icon qa-icon-income">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </div>
+              <span data-i18n="common.income">Income</span>
+            </div>
+            <div class="quick-action" data-tx-type="expense">
+              <div class="qa-icon qa-icon-expense">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </div>
+              <span data-i18n="common.expense">Expense</span>
+            </div>
+            <div class="quick-action" data-tx-type="transfer">
+              <div class="qa-icon qa-icon-transfer">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+              </div>
+              <span data-i18n="common.transfer">Transfer</span>
+            </div>
+            <div class="quick-action" data-tx-type="savings">
+              <div class="qa-icon qa-icon-savings-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9a3 3 0 0 0-3-3h-1.5a5.5 5.5 0 0 0-10.9 1.2C2.5 8 2 9.8 2 11c0 2.8 2 5 5 5h9a3 3 0 0 0 3-3z"/><circle cx="16" cy="11" r="1"/></svg>
+              </div>
+              <span data-i18n="account.savings">Savings</span>
+            </div>
+          </div>
+
+          <!-- ---- Recent transactions (rendered from localStorage) ---- -->
+          <div class="section-header">
+            <h3 data-i18n="home.recentTransactions">Recent transactions</h3>
+            <a data-page="history" data-i18n="common.seeAll">See all</a>
+          </div>
+          <div class="card" id="recent-tx-list">
+            <!-- populated at runtime by App.renderRecentTransactions() -->
+          </div>
+        </section>
+
+        <!-- ===== HISTORY ===== -->
+        <section class="page" data-page="history">
+          <h2 class="page-title"><span data-i18n="nav.history">History</span>
+            <span class="muted" data-i18n="history.subtitle">Every transaction, all in one place</span>
+          </h2>
+
+          <div class="history-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="history-search-input" data-i18n-placeholder="history.searchPlaceholder" placeholder="Search transactions..." autocomplete="off">
+            <button type="button" class="history-search-clear" id="history-search-clear" data-i18n-aria="common.clearSearchAria" aria-label="Clear search" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="filter-tabs" id="history-filter-tabs">
+            <button class="filter-tab active" data-filter="all" data-i18n="common.all">All</button>
+            <button class="filter-tab" data-filter="income" data-i18n="common.income">Income</button>
+            <button class="filter-tab" data-filter="expense" data-i18n="common.expense">Expense</button>
+            <button class="filter-tab" data-filter="transfer" data-i18n="common.transfer">Transfer</button>
+          </div>
+
+          <div class="history-category-filter" id="history-category-filter"></div>
+
+          <div id="history-list"></div>
+        </section>
+
+        <!-- ===== Statistics ===== -->
+        <section class="page" data-page="statistics">
+          <h2 class="page-title"><span data-i18n="nav.stats">Statistics</span>
+            <span class="muted" data-i18n="stats.subtitle">See where your money goes</span>
+          </h2>
+
+          <!-- ---- biggest category + saving rate ---- -->
+          <div class="stats-grid stats-grid-2 anim-stagger" id="stats-highlight-grid">
+            <div class="stat-card stat-expense">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6.36 3.36"/></svg>
+              </div>
+              <span class="stat-label" data-i18n="stats.biggestCategory">Biggest category</span>
+              <span class="stat-value stat-value-text" id="stat-biggest-category">—</span>
+              <span class="stat-sub" id="stat-biggest-category-sub" data-i18n="stats.noExpensesYet">No expenses yet</span>
+            </div>
+            <div class="stat-card stat-saved">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg>
+              </div>
+              <span class="stat-label" data-i18n="stats.savingRate">Saving rate</span>
+              <span class="stat-value" id="stat-saving-rate">0%</span>
+              <span class="stat-sub" id="stat-saving-rate-sub" data-i18n="stats.ofIncomeThisMonth">of income this month</span>
+            </div>
+          </div>
+
+          <!-- ---- Monthly income chart ---- -->
+          <div class="section-header">
+            <h3 data-i18n="stats.monthlyIncome">Monthly Income</h3>
+            <span class="muted-inline" data-i18n="stats.last6Months">Last 6 months</span>
+          </div>
+          <div class="card chart-card" id="chart-monthly-income" data-chart="bar-income"></div>
+
+          <!-- ---- Monthly expense chart ---- -->
+          <div class="section-header">
+            <h3 data-i18n="stats.monthlyExpenses">Monthly Expenses</h3>
+            <span class="muted-inline" data-i18n="stats.last6Months">Last 6 months</span>
+          </div>
+          <div class="card chart-card" id="chart-monthly-expense" data-chart="bar-expense"></div>
+
+          <!-- ---- Savings growth chart ---- -->
+          <div class="section-header">
+            <h3 data-i18n="stats.savingsGrowth">Savings Growth</h3>
+            <span class="muted-inline" data-i18n="stats.last6Months">Last 6 months</span>
+          </div>
+          <div class="card chart-card" id="chart-savings-growth" data-chart="line-savings"></div>
+
+          <!-- ---- Expense categories chart ---- -->
+          <div class="section-header">
+            <h3 data-i18n="stats.expenseCategories">Expense Categories</h3>
+            <span class="muted-inline" data-i18n="stats.thisMonthInline">This month</span>
+          </div>
+          <div class="card chart-card chart-card-donut" id="chart-expense-categories" data-chart="donut-categories"></div>
+
+          <!-- ---- Weekly spending chart ---- -->
+          <div class="section-header">
+            <h3 data-i18n="stats.weeklySpending">Weekly Spending</h3>
+            <span class="muted-inline" data-i18n="stats.last7Days">Last 7 days</span>
+          </div>
+          <div class="card chart-card" id="chart-weekly-spending" data-chart="bar-weekly"></div>
+
+          <!-- ---- Monthly report ---- -->
+          <div class="section-header">
+            <h3 data-i18n="stats.monthlyReport">Monthly Report</h3>
+          </div>
+          <div class="card report-card" id="monthly-report-card"></div>
+        </section>
+
+        <!-- ===== Profile ===== -->
+        <section class="page" data-page="profile">
+          <h2 class="page-title"><span data-i18n="nav.profile">Profile</span>
+            <span class="muted" data-i18n="profile.subtitle">Your account and preferences</span>
+          </h2>
+
+          <!-- ---- Identity card ---- -->
+          <div class="card profile-edit-card">
+            <div class="profile-header">
+              <div class="avatar-upload-wrap">
+                <div class="avatar-lg" id="profile-avatar" data-empty="true">
+                  <svg class="avatar-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <img id="profile-avatar-img" alt="" style="display:none;">
+                </div>
+                <button type="button" class="avatar-edit-btn" id="avatar-edit-btn" data-i18n-aria="profile.changePhotoAria" aria-label="Change profile photo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                </button>
+                <input type="file" id="avatar-file-input" accept="image/*" hidden>
+              </div>
+              <div>
+                <div class="name" id="profile-name-display" data-i18n="profile.yourName">Your Name</div>
+                <div class="email" id="profile-occupation-display" data-i18n="profile.addDetailsBelow">Add your details below</div>
+              </div>
+            </div>
+
+            <p class="profile-bio-display" id="profile-bio-display"></p>
+
+            <div class="form-group">
+              <label for="profile-name" data-i18n="common.name">Name</label>
+              <input type="text" id="profile-name" name="name" maxlength="40" data-i18n-placeholder="profile.namePlaceholder" placeholder="e.g. Rayen" autocomplete="name">
+            </div>
+
+            <div class="profile-fields-row">
+              <div class="form-group">
+                <label for="profile-age" data-i18n="common.age">Age</label>
+                <input type="number" id="profile-age" name="age" min="1" max="120" inputmode="numeric" data-i18n-placeholder="profile.agePlaceholder" placeholder="e.g. 22">
+              </div>
+              <div class="form-group">
+                <label for="profile-country-trigger" data-i18n="common.country">Country</label>
+                <button type="button" class="country-select-trigger" id="profile-country-trigger" aria-haspopup="dialog">
+                  <span class="country-select-value" id="profile-country-value" data-i18n="profile.selectCountry">Select country</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <input type="hidden" id="profile-country" name="country">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="profile.occupation">Occupation</label>
+              <div class="chip-group" id="profile-occupation-chips">
+                <button type="button" class="chip chip-cat" data-occupation="student">
+                  <span class="chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                  <span data-i18n="occupation.student">Student</span>
+                </button>
+                <button type="button" class="chip chip-cat" data-occupation="pupil">
+                  <span class="chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+                  <span data-i18n="occupation.pupil">Pupil</span>
+                </button>
+                <button type="button" class="chip chip-cat" data-occupation="employee">
+                  <span class="chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                  <span data-i18n="occupation.employee">Employee</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="profile-bio" data-i18n="common.bio">Bio</label>
+              <textarea id="profile-bio" name="bio" maxlength="150" rows="3" data-i18n-placeholder="profile.bioPlaceholder" placeholder="Tell us a little about yourself..."></textarea>
+              <span class="char-counter" id="profile-bio-counter">0 / 150</span>
+            </div>
+          </div>
+
+          <!-- ---- Settings ---- -->
+          <div class="section-header"><h3 data-i18n="settings.title">Settings</h3></div>
+          <div class="card">
+            <div class="settings-row">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg>
+                <span data-i18n="settings.darkMode">Dark mode</span>
+              </div>
+              <div class="switch" id="theme-toggle" role="button" data-i18n-aria="settings.darkModeAria" aria-label="Toggle dark mode"></div>
+            </div>
+            <div class="settings-row">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+                <span data-i18n="settings.notifications">Notifications</span>
+              </div>
+              <div class="switch" id="notif-toggle" role="button" data-i18n-aria="settings.notificationsAria" aria-label="Toggle notifications"></div>
+            </div>
+            <div class="settings-row">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+                <span data-i18n="settings.currency">Currency</span>
+              </div>
+              <select id="currency-select" class="pill-select" data-i18n-aria="settings.currency" aria-label="Currency"></select>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="settings-row category-manage-row" data-manage-categories="expense">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                <span data-i18n="settings.expenseCategories">Expense categories</span>
+              </div>
+              <span class="pill-badge" id="expense-cat-count">0</span>
+            </div>
+            <div class="settings-row category-manage-row" data-manage-categories="income">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+                <span data-i18n="settings.incomeCategories">Income categories</span>
+              </div>
+              <span class="pill-badge" id="income-cat-count">0</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="settings-row category-manage-row" id="export-backup-btn">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                <span data-i18n="settings.exportData">Export data</span>
+              </div>
+              <span class="pill-badge" data-i18n="common.backup">Backup</span>
+            </div>
+            <div class="settings-row category-manage-row" id="import-backup-btn">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="settings.importData">Import data</span>
+              </div>
+              <span class="pill-badge" data-i18n="common.restore">Restore</span>
+            </div>
+            <input type="file" id="import-backup-input" accept="application/json" hidden>
+            <div class="settings-row category-manage-row danger-row" id="reset-data-btn">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                <span data-i18n="settings.resetData">Reset data</span>
+              </div>
+              <span class="pill-badge pill-badge-danger" data-i18n="common.danger">Danger</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="settings-row category-manage-row" id="replay-tour-btn">
+              <div class="row-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2.5 2.5"/></svg>
+                <span data-i18n="profile.replayTour">Replay app tour</span>
+              </div>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="9 6 15 12 9 18"/></svg>
+            </div>
+          </div>
+
+          <!-- ---- About ---- -->
+          <div class="section-header"><h3 data-i18n="settings.about">About</h3></div>
+          <div class="card about-card">
+            <div class="about-header">
+              <div class="about-logo" id="about-brand-dot"><img src="assets/images/logo.png" alt="My Flous" class="about-logo-img"></div>
+              <div>
+                <div class="about-app-name" id="about-brand-text">My Flous</div>
+                <div class="about-version" id="about-version">Version 1.9.2</div>
+              </div>
+            </div>
+            <p class="about-description" data-i18n="about.description">
+              My Flous is a personal finance tracker that helps you follow every dinar — income, expenses,
+              transfers and savings — across cash, bank and savings accounts, with clear monthly statistics
+              and a private, on-device backup you fully control.
+            </p>
+            <div class="about-creators">
+              <div class="about-creators-label" data-i18n="about.creators">Creator</div>
+              <div class="about-creators-list">
+                <span class="creator-chip">Rayen Ben Amara</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ---------- Bottom ---------- -->
+      <nav class="bottom-nav">
+        <button class="nav-item active" data-page="home" data-i18n-aria="nav.home" aria-label="Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+          <span data-i18n="nav.home">Home</span>
+        </button>
+        <button class="nav-item" data-page="history" data-i18n-aria="nav.history" aria-label="History">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 3 3 12 12 12"/></svg>
+          <span data-i18n="nav.history">History</span>
+        </button>
+
+        <div class="nav-item-add-wrap">
+          <button class="nav-item-add" id="fab-add-btn" data-tx-type="expense" data-i18n-aria="nav.addTransactionAria" aria-label="Add transaction">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+
+        <button class="nav-item" data-page="statistics" data-i18n-aria="nav.stats" aria-label="Statistics">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span data-i18n="nav.statsShort">Stats</span>
+        </button>
+        <button class="nav-item" data-page="profile" data-i18n-aria="nav.profile" aria-label="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span data-i18n="nav.profile">Profile</span>
+        </button>
+      </nav>
+
+    </div>
+
+    <!-- ============ Side Menu ============ -->
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true">
+      <div class="modal-backdrop" data-drawer-close></div>
+      <nav class="drawer-panel" id="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="drawer-header">
+          <div class="brand-lockup">
+            <div class="brand-dot" id="drawer-brand-dot"><img src="assets/images/logo.png" alt="My Flous" class="brand-dot-img"></div>
+            <span id="drawer-brand-text">My <b>Flous</b></span>
+          </div>
+          <button type="button" class="icon-btn" id="drawer-close-btn" data-drawer-close data-i18n-aria="common.closeMenuAria" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="drawer-section">
+          <button type="button" class="drawer-link" data-page="home" data-drawer-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+            <span data-i18n="nav.home">Home</span>
+          </button>
+          <button type="button" class="drawer-link" data-page="history" data-drawer-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 3 3 12 12 12"/></svg>
+            <span data-i18n="nav.history">History</span>
+          </button>
+          <button type="button" class="drawer-link" data-page="statistics" data-drawer-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span data-i18n="nav.stats">Statistics</span>
+          </button>
+          <button type="button" class="drawer-link" data-page="profile" data-drawer-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span data-i18n="nav.profile">Profile</span>
+          </button>
+        </div>
+
+        <div class="drawer-divider"></div>
+
+        <div class="drawer-section">
+          <button type="button" class="drawer-link drawer-link-value" id="drawer-language-btn" data-drawer-close aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="drawer-link-text" data-i18n="settings.language">Language</span>
+            <span class="drawer-lang-current" id="drawer-language-current">
+              <span class="drawer-lang-flag" id="drawer-language-flag" aria-hidden="true"></span>
+              <span id="drawer-language-name">English</span>
+            </span>
+            <svg class="drawer-link-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <div class="drawer-divider"></div>
+
+        <div class="drawer-section">
+          <button type="button" class="drawer-link" id="drawer-export-btn" data-drawer-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span data-i18n="settings.exportData">Export data</span>
+          </button>
+          <button type="button" class="drawer-link drawer-link-danger" id="drawer-reset-btn" data-drawer-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+            <span data-i18n="settings.resetData">Reset data</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ============ Bottom Sheet ============ -->
+    <div class="modal-overlay" id="txn-modal-overlay" aria-hidden="true">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-sheet" id="txn-modal-sheet" role="dialog" aria-modal="true" aria-labelledby="txn-modal-title">
+        <div class="modal-handle" data-modal-close></div>
+
+        <div class="modal-header">
+          <h3 id="txn-modal-title">Add Income</h3>
+          <button type="button" class="icon-btn" id="txn-modal-close" data-i18n-aria="common.closeAria" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="txn-type-tabs" id="txn-type-tabs">
+          <button type="button" class="txn-tab" data-type="income" data-i18n="common.income">Income</button>
+          <button type="button" class="txn-tab" data-type="expense" data-i18n="common.expense">Expense</button>
+          <button type="button" class="txn-tab" data-type="transfer" data-i18n="common.transfer">Transfer</button>
+        </div>
+
+        <form id="txn-form" novalidate>
+
+          <div class="form-group">
+            <label for="txn-amount" data-i18n="common.amount">Amount</label>
+            <div class="amount-input-wrap">
+              <input type="number" id="txn-amount" name="amount" inputmode="decimal" step="0.001" min="0" placeholder="0.000" autocomplete="off">
+              <span class="amount-currency" id="txn-amount-currency">TND</span>
+            </div>
+            <span class="field-error" id="txn-amount-error"></span>
+          </div>
+
+          <div class="form-group" id="txn-category-group">
+            <label data-i18n="common.category">Category</label>
+            <div class="chip-group" id="txn-category-chips"></div>
+            <span class="field-error" id="txn-category-error"></span>
+          </div>
+
+          <div class="form-group" id="txn-account-group">
+            <label id="txn-account-label" data-i18n="txn.accountDestination">Account destination</label>
+            <div class="chip-group" id="txn-account-chips">
+              <button type="button" class="chip" data-account="cash" data-i18n="account.cash">Cash</button>
+              <button type="button" class="chip" data-account="bank" data-i18n="account.bank">Bank</button>
+              <button type="button" class="chip" data-account="savings" data-i18n="account.savings">Savings</button>
+            </div>
+            <span class="field-error" id="txn-account-error"></span>
+          </div>
+
+          <div class="form-group" id="txn-transfer-group">
+            <div class="transfer-row">
+              <div class="transfer-col">
+                <label data-i18n="common.from">From</label>
+                <div class="chip-group chip-group-vert" id="txn-from-chips">
+                  <button type="button" class="chip" data-from="cash" data-i18n="account.cash">Cash</button>
+                  <button type="button" class="chip" data-from="bank" data-i18n="account.bank">Bank</button>
+                  <button type="button" class="chip" data-from="savings" data-i18n="account.savings">Savings</button>
+                </div>
+              </div>
+              <div class="transfer-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+              <div class="transfer-col">
+                <label data-i18n="common.to">To</label>
+                <div class="chip-group chip-group-vert" id="txn-to-chips">
+                  <button type="button" class="chip" data-to="cash" data-i18n="account.cash">Cash</button>
+                  <button type="button" class="chip" data-to="bank" data-i18n="account.bank">Bank</button>
+                  <button type="button" class="chip" data-to="savings" data-i18n="account.savings">Savings</button>
+                </div>
+              </div>
+            </div>
+            <span class="field-error" id="txn-transfer-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="txn-description" data-i18n="txn.descriptionLabel">Description <span class="optional" data-i18n="common.optional">(optional)</span></label>
+            <input type="text" id="txn-description" name="description" maxlength="60" data-i18n-placeholder="txn.descriptionPlaceholder" placeholder="e.g. Carrefour groceries" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="txn-date" data-i18n="common.date">Date</label>
+            <input type="date" id="txn-date" name="date">
+            <span class="field-error" id="txn-date-error"></span>
+          </div>
+
+          <button type="submit" class="btn-primary" id="txn-submit-btn">Add Income</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============ Categories Modal (bottom sheet) ============ -->
+    <div class="modal-overlay" id="cat-modal-overlay" aria-hidden="true">
+      <div class="modal-backdrop" data-cat-modal-close></div>
+      <div class="modal-sheet" id="cat-modal-sheet" role="dialog" aria-modal="true" aria-labelledby="cat-modal-title">
+        <div class="modal-handle" data-cat-modal-close></div>
+
+        <!-- ---- LIST VIEW ---- -->
+        <div id="cat-list-view">
+          <div class="modal-header">
+            <h3 id="cat-modal-title" data-i18n="categories.manage">Manage Categories</h3>
+            <button type="button" class="icon-btn" id="cat-modal-close" data-i18n-aria="common.closeAria" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="cat-type-tabs" id="cat-type-tabs">
+            <button type="button" class="cat-type-tab" data-cat-type="expense" data-i18n="common.expense">Expense</button>
+            <button type="button" class="cat-type-tab" data-cat-type="income" data-i18n="common.income">Income</button>
+          </div>
+
+          <div class="cat-list" id="cat-list"></div>
+
+          <button type="button" class="cat-add-btn" id="cat-add-trigger">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span data-i18n="categories.addCategory">Add category</span>
+          </button>
+        </div>
+
+        <!-- ---- Editor View ---- -->
+        <div id="cat-editor-view" style="display:none;">
+          <div class="modal-header">
+            <button type="button" class="icon-btn" id="cat-editor-back" data-i18n-aria="common.backAria" aria-label="Back">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h3 id="cat-editor-title">Add Category</h3>
+            <button type="button" class="icon-btn" id="cat-editor-close" data-i18n-aria="common.closeAria" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <form id="cat-editor-form" novalidate>
+            <div class="cat-editor-preview">
+              <div class="cat-editor-preview-icon" id="cat-editor-preview-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="cat-editor-preview-svg"></svg>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cat-editor-name" data-i18n="common.name">Name</label>
+              <input type="text" id="cat-editor-name" name="name" maxlength="24" data-i18n-placeholder="categories.namePlaceholder" placeholder="e.g. Subscriptions" autocomplete="off">
+              <span class="field-error" id="cat-editor-name-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="categories.icon">Icon</label>
+              <div class="icon-picker-grid" id="cat-icon-picker"></div>
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="categories.color">Color</label>
+              <div class="color-picker-grid" id="cat-color-picker"></div>
+            </div>
+
+            <div class="cat-editor-actions">
+              <button type="button" class="btn-secondary" id="cat-editor-delete" style="display:none;" data-i18n="common.delete">Delete</button>
+              <button type="submit" class="btn-primary" id="cat-editor-save" data-i18n="categories.saveCategory">Save Category</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ Country Picker ============ -->
+    <div class="modal-overlay" id="country-modal-overlay" aria-hidden="true">
+      <div class="modal-backdrop" data-country-modal-close></div>
+      <div class="modal-sheet country-modal-sheet" id="country-modal-sheet" role="dialog" aria-modal="true" aria-labelledby="country-modal-title">
+        <div class="modal-handle" data-country-modal-close></div>
+
+        <div class="modal-header">
+          <h3 id="country-modal-title" data-i18n="profile.selectCountryTitle">Select Country</h3>
+          <button type="button" class="icon-btn" id="country-modal-close" data-country-modal-close data-i18n-aria="common.closeAria" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="history-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="country-search-input" data-i18n-placeholder="profile.searchCountryPlaceholder" placeholder="Search country..." autocomplete="off">
+          <button type="button" class="history-search-clear" id="country-search-clear" style="display:none;" data-i18n-aria="common.clearSearchAria" aria-label="Clear search">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="country-picker-list" id="country-picker-list"></div>
+      </div>
+    </div>
+
+    <!-- ============ Language Picker ============ -->
+    <div class="modal-overlay" id="language-modal-overlay" aria-hidden="true">
+      <div class="modal-backdrop" data-language-modal-close></div>
+      <div class="modal-sheet country-modal-sheet language-modal-sheet" id="language-modal-sheet" role="dialog" aria-modal="true" aria-labelledby="language-modal-title">
+        <div class="modal-handle" data-language-modal-close></div>
+
+        <div class="modal-header">
+          <h3 id="language-modal-title" data-i18n="settings.chooseLanguage">Choose Language</h3>
+          <button type="button" class="icon-btn" id="language-modal-close" data-language-modal-close aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="country-picker-list language-picker-list" id="language-picker-list"></div>
+      </div>
+    </div>
+
+    <!-- ============ CONFIRM DIALOG (delete category / import backup) ============ -->
+    <div class="confirm-overlay" id="confirm-overlay">
+      <div class="confirm-box">
+        <h4 id="confirm-title" data-i18n="common.areYouSure">Are you sure?</h4>
+        <p id="confirm-message"></p>
+        <div class="confirm-actions">
+          <button type="button" class="confirm-cancel-btn" id="confirm-cancel-btn" data-i18n="common.cancel">Cancel</button>
+          <button type="button" class="confirm-danger-btn" id="confirm-ok-btn" data-i18n="common.confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ Toast ============ -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  </div>
+</div>
+
+<noscript>
+  <div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;background:#0A0A0C;color:#F5F5F7;font-family:sans-serif;">
+    My Flous needs JavaScript enabled to run — please enable it in your browser settings.
+  </div>
+</noscript>
+
+<script src="js/utils.js"></script>
+<script src="js/flags.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/transactions.js"></script>
+<script src="js/categories.js"></script>
+<script src="js/statistics.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/pwa.js"></script>
+<script src="js/onboarding.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
